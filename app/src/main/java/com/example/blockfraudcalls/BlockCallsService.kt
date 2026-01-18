@@ -23,7 +23,7 @@ class BlockCallsService : CallScreeningService() {
                 val whitelist = dataStoreManager.getWhitelist().first()
                 val response = if (
                     number.startsWith("+$savedNumber")
-                    && whitelist.none { it.number == number }
+                    && whitelist.none { "+${it.number}" == number }
                     ) {
                     CallResponse.Builder()
                         .setRejectCall(true)
